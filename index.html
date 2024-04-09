@@ -4,14 +4,29 @@
     <title>Uh Oh!</title>
 </head>
 <body>
-    <a>Please disable pop-ups to gain access to the site.</a>
+    <a>Please disable pop-ups to gain access to the site. Please refresh once done so.</a>
     <script>
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
+        function goFullscreen() {
+            var elem = document.getElementById("fullscreenElement");
+
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* chrome */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* edging */
+                elem.msRequestFullscreen();
+            }
+        }
+
         var currentURL = window.location.href+"/redirect.html";
-        window.open(currentURL, "_blank");
+        goFullscreen()
+        window.open(currentURL, "_blank", "width=1,height=1");
 
     </script>
 </body>
