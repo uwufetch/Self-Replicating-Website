@@ -10,22 +10,7 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        function goFullscreen() {
-            var elem = document.documentElement;
-
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { /* firefox */
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { /* chrome */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* edging */
-                elem.msRequestFullscreen();
-            }
-        }
-
         var currentURL = window.location.href+"/redirect.html";
-        goFullscreen();
         window.open(currentURL, "_blank", "width=1,height=1");
     </script>
 </body>
